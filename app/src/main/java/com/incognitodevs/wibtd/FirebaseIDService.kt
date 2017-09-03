@@ -13,8 +13,8 @@ class FirebaseIDService : FirebaseInstanceIdService() {
     override fun onTokenRefresh() {
         // Get updated InstanceID token.
         val refreshedToken = FirebaseInstanceId.getInstance().token
-        Log.d(TAG, "Refreshed token: " + refreshedToken!!)
 
+        Log.d(TAG, "Refreshed token: " + refreshedToken!!)
         // TODO: Implement this method to send any registration to your app's servers.
         sendRegistrationToServer(refreshedToken)
     }
