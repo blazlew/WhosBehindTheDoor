@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "49347911936",
+    "firebase_url": "https://whosbehindthedoor-a07b9.firebaseio.com",
+    "project_id": "whosbehindthedoor-a07b9",
+    "storage_bucket": "whosbehindthedoor-a07b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49347911936:android:e3de7396b040eb6a",
+        "android_client_info": {
+          "package_name": "com.incognitodevs.wibtd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49347911936-0tf5er9eh9cdv75jedn2iuauumh4bf2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.incognitodevs.wibtd",
+            "certificate_hash": "7997fde4867fb36dc6d664b65669c1fd3a94fd57"
+          }
+        },
+        {
+          "client_id": "49347911936-r44372il0q6fgmem5161a4rm226pdk62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.incognitodevs.wibtd",
+            "certificate_hash": "7a7ebf8f867ff1c016816850f32e635c0a9b2209"
+          }
+        },
+        {
+          "client_id": "49347911936-38fknkieho1213ion1lgr0mu073mtui5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.incognitodevs.wibtd",
+            "certificate_hash": "251af3bc8fc94ac776bd9da62ddc2f77e18e4e4d"
+          }
+        },
+        {
+          "client_id": "49347911936-tmil5sa7cpr3f8k97bra7csqurvl0gkh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA7elk6NMfMckmtsGfG2bHwbRCTmqxbqI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49347911936-tmil5sa7cpr3f8k97bra7csqurvl0gkh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
