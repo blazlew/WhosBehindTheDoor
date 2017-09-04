@@ -6,9 +6,7 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_camera.*
 import org.json.JSONObject
 import android.widget.Toast
-import java.net.HttpURLConnection.HTTP_OK
 import android.os.AsyncTask
-import com.incognitodevs.wibtd.CameraActivity.SendPostRequest
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.InputStreamReader
