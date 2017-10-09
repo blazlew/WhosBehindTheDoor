@@ -35,7 +35,7 @@ class CameraActivity : AppCompatActivity() {
 
         override fun doInBackground(vararg arg0: String): String {
             try {
-                val url = URL("http://10.0.2.2/IncognitoServer/src/Post.php") // here is your URL path
+                val url = URL("https://incognitodevs.000webhostapp.com/IncognitoServer/src/Post.php") // here is your URL path
 
                 val postDataParams = JSONObject()
                 postDataParams.put("id", "1")
