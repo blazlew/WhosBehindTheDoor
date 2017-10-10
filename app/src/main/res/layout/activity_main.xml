@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<FrameLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorPrimaryDark"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <Button
-        android:layout_marginTop="?android:attr/actionBarSize"
-
-        android:id="@+id/cameraButton"
-        style="@style/Widget.AppCompat.Button.Colored"
+    <com.luseen.spacenavigation.SpaceNavigationView
+        android:id="@+id/spaceNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/camera"
-        android:textColor="@color/textColor"
-        android:height="100dp"/>
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        app:centre_button_color="@color/textColor" />
 
-    <Button
-        android:id="@+id/settingsButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:textColor="@color/textColor"
-        android:height="100dp"/>
-
-    <Button
-        android:id="@+id/galleryButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/gallery"
-        android:textColor="@color/textColor"
-        android:height="100dp"/>
-
-</LinearLayout>
+</FrameLayout>
