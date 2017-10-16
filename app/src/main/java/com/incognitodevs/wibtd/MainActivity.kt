@@ -44,10 +44,10 @@ class MainActivity : AppCompatActivity() {
         })
 
         val urlOfImage =  "http://armaghi.com/wp-content/uploads/2014/09/Burglary-crime-burglar-opening-a-door-1839912781.jpg"
-        val imageview = ImageView(applicationContext)
-        imageview.visibility = View.VISIBLE
-        Pearl.imageLoader(applicationContext, urlOfImage, imageview, 1)
-        mainLayout.addView(imageview)
+        val imageView = ImageView(applicationContext)
+        imageView.visibility = View.VISIBLE
+        Pearl.imageLoader(applicationContext, urlOfImage, imageView, 1)
+        mainLayout.addView(imageView)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
