@@ -3,7 +3,10 @@ package com.incognitodevs.wibtd
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
+import com.hanuor.pearl.Pearl
 import com.luseen.spacenavigation.SpaceItem
 import com.luseen.spacenavigation.SpaceOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,6 +42,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        val urlOfImage =  "http://armaghi.com/wp-content/uploads/2014/09/Burglary-crime-burglar-opening-a-door-1839912781.jpg"
+        val imageview = ImageView(applicationContext)
+        imageview.visibility = View.VISIBLE
+        Pearl.imageLoader(applicationContext, urlOfImage, imageview, 1)
+        mainLayout.addView(imageview)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
