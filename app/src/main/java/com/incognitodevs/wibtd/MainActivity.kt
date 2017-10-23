@@ -3,6 +3,7 @@ package com.incognitodevs.wibtd
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        val urlFromPostRequest =  PostRequest("android", "photo").execute()
+        Log.d("url request", "Post send")
+        Log.d("url request", urlFromPostRequest.get())
 
         val urlOfImage =  "http://armaghi.com/wp-content/uploads/2014/09/Burglary-crime-burglar-opening-a-door-1839912781.jpg"
         val imageView = ImageView(applicationContext)
