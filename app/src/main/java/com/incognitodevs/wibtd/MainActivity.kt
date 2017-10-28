@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.messaging.FirebaseMessaging
 import com.hanuor.pearl.Pearl
 import com.luseen.spacenavigation.SpaceItem
 import com.luseen.spacenavigation.SpaceOnClickListener
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Subscribe to topic
+        FirebaseMessaging.getInstance().subscribeToTopic("notifications")
 
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState)
         spaceNavigationView.addSpaceItem(SpaceItem("GALLERY", R.drawable.ic_gallery))
