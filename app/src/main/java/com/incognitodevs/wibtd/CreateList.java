@@ -6,7 +6,7 @@ package com.incognitodevs.wibtd;
 
 public class CreateList {
     private String image_title;
-    private Integer image_id;
+    private String image_id;
 
     public String getImage_title() {
         return image_title;
@@ -16,11 +16,11 @@ public class CreateList {
         this.image_title = android_version_name;
     }
 
-    public Integer getImage_ID() {
+    public String getImage_ID() {
         return image_id;
     }
 
-    public void setImage_ID(Integer android_image_url) {
+    public void setImage_ID(String android_image_url) {
         this.image_id = android_image_url;
     }
 }
