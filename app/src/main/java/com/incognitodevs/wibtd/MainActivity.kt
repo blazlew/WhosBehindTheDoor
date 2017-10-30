@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.firebase.messaging.FirebaseMessaging
 import com.hanuor.pearl.Pearl
 import com.luseen.spacenavigation.SpaceItem
 import com.luseen.spacenavigation.SpaceOnClickListener
@@ -19,13 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Subscribe to topic
-        FirebaseMessaging.getInstance().subscribeToTopic("notifications")
-
         spaceNavigationView.initWithSaveInstanceState(savedInstanceState)
         spaceNavigationView.addSpaceItem(SpaceItem("GALLERY", R.drawable.ic_gallery))
         spaceNavigationView.addSpaceItem(SpaceItem("SETTINGS", R.drawable.ic_settings))
         spaceNavigationView.setCentreButtonIcon(R.drawable.ic_camera)
+        spaceNavigationView.setCentreButtonIconColorFilterEnabled(false)
         spaceNavigationView.setSpaceOnClickListener(object: SpaceOnClickListener {
             override fun onCentreButtonClick() {
                 val intent = Intent(this@MainActivity, CameraActivity::class.java)
@@ -55,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         val urlOfImage =  "http://armaghi.com/wp-content/uploads/2014/09/Burglary-crime-burglar-opening-a-door-1839912781.jpg"
         val imageView = ImageView(applicationContext)
         imageView.visibility = View.VISIBLE
-        Pearl.imageLoader(applicationContext, urlOfImage, imageView, 1)
+//        Pearl.imageLoader(applicationContext, urlOfImage, imageView, 1)
         mainLayout.addView(imageView)
     }
 
