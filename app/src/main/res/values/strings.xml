@@ -5,4 +5,6 @@
     <string name="camera">Camera</string>
     <string name="save">Save</string>
     <string name="x">X</string>
+    <string name="save_picture">save picture</string>
+    <string name="get_picture">get picture</string>
 </resources>

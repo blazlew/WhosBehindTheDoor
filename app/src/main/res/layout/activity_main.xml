@@ -8,6 +8,14 @@
     android:background="@color/colorPrimaryDark">
 
 
+    <ImageView
+        android:id="@+id/imageViewMain"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_door_eye_round"
+        android:contentDescription="TODO" />
+
     <com.luseen.spacenavigation.SpaceNavigationView
         android:id="@+id/spaceNavigationView"
         android:layout_width="match_parent"

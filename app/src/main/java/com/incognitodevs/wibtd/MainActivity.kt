@@ -4,13 +4,19 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
-import com.hanuor.pearl.Pearl
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.luseen.spacenavigation.SpaceItem
 import com.luseen.spacenavigation.SpaceOnClickListener
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,15 +51,35 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val urlFromPostRequest =  PostRequest("android", "photo").execute()
-        Log.d("url request", "Post send")
-        Log.d("url request", urlFromPostRequest.get())
+//        {"error":false,
+//            "message":"Default message",
+//            "pictureUrl":"https:\/\/incognitodevs.000webhostapp.com\/IncognitoServer\/src\/uploads\/robbery.jpg"}
 
-        val urlOfImage =  "http://armaghi.com/wp-content/uploads/2014/09/Burglary-crime-burglar-opening-a-door-1839912781.jpg"
-        val imageView = ImageView(applicationContext)
-        imageView.visibility = View.VISIBLE
-//        Pearl.imageLoader(applicationContext, urlOfImage, imageView, 1)
-        mainLayout.addView(imageView)
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://incognitodevs.000webhostapp.com/IncognitoServer/src/Waiter.php"
+        val postRequest = object : StringRequest(Request.Method.POST, url,
+                Response.Listener { response ->
+                    val obj = JSONObject(response)
+                    Log.d("response", response.toString())
+                    if (!obj.getBoolean("error")) {
+                        DownloadImageTask(imageViewMain).execute(obj.getString("pictureUrl"))
+                    }
+
+                },
+                Response.ErrorListener { error ->
+                    Log.d("Error.Response", error.toString())
+                }
+        ) {
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params.put("id", "1")
+                params.put("client", "android")
+                params.put("request", "camera")
+                params.put("data", "")
+                return params
+            }
+        }
+        queue.add(postRequest)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

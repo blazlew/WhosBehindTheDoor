@@ -6,14 +6,15 @@
     tools:context="com.incognitodevs.wibtd.CameraActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <VideoView
-        android:id="@+id/videoView2"
+    <ImageView
+        android:id="@+id/imageViewCamera"
         android:layout_width="320dp"
         android:layout_height="331dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="32dp"
+        android:contentDescription="TODO" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,27 +22,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSend"
+            android:id="@+id/btnGetPicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="send" />
+            android:text="@string/get_picture" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/savePictureButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/x"
-            tools:layout_editor_absoluteX="61dp"
-            tools:layout_editor_absoluteY="404dp" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/save"
+            android:text="@string/save_picture"
             tools:layout_editor_absoluteX="239dp"
             tools:layout_editor_absoluteY="404dp" />
     </LinearLayout>
