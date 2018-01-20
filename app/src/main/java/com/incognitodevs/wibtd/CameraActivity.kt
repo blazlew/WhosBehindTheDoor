@@ -2,6 +2,7 @@ package com.incognitodevs.wibtd
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.Response
@@ -9,6 +10,16 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_camera.*
 import org.json.JSONObject
+import android.graphics.drawable.BitmapDrawable
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.support.v4.app.ActivityCompat
+import android.content.pm.PackageManager
+import android.support.v4.content.ContextCompat
+
+
+
+
+
 
 class CameraActivity : AppCompatActivity() {
 
@@ -68,7 +79,22 @@ class CameraActivity : AppCompatActivity() {
             queue.add(postRequest2)
 
         }
+
+        savePictureButton.setOnClickListener{
+            val permissionCheck = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE)
+
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        this, arrayOf(WRITE_EXTERNAL_STORAGE), 1)
+            } else {
+                val bitmap = (imageViewCamera.drawable as BitmapDrawable).bitmap
+                MediaStore.Images.Media.insertImage(contentResolver, bitmap, "" , "")
+            }
+
+        }
+
     }
+
 
 }
 
