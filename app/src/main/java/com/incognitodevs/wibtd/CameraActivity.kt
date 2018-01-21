@@ -15,6 +15,9 @@ import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.support.v4.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
+import com.android.volley.DefaultRetryPolicy
+
+
 
 
 
@@ -28,7 +31,7 @@ class CameraActivity : AppCompatActivity() {
         setContentView(R.layout.activity_camera)
 
         var queue = Volley.newRequestQueue(this)
-        val url = "https://incognitodevs.000webhostapp.com/IncognitoServer/src/Waiter.php"
+        val url = "https://incognitodevs.000webhostapp.com/IncognitoServer/src/Waiter1.php"
         val postRequest = object : StringRequest(Request.Method.POST, url,
                 Response.Listener { response ->
                     val obj = JSONObject(response)
@@ -50,13 +53,19 @@ class CameraActivity : AppCompatActivity() {
                 return params
             }
         }
+        postRequest.retryPolicy = DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
         queue.add(postRequest)
 
 
         btnGetPicture.setOnClickListener{
             queue = Volley.newRequestQueue(this)
+
             val postRequest2 = object : StringRequest(Request.Method.POST, url,
                     Response.Listener { response ->
+                        Log.d("response", response.toString())
                         val obj = JSONObject(response)
                         if (!obj.getBoolean("error")) {
                             DownloadImageTask(imageViewCamera).execute(obj.getString("pictureUrl"))
@@ -76,6 +85,10 @@ class CameraActivity : AppCompatActivity() {
                     return params
                 }
             }
+            postRequest2.retryPolicy = DefaultRetryPolicy(
+                    10000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
             queue.add(postRequest2)
 
         }

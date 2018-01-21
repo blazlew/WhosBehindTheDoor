@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -56,11 +57,11 @@ class MainActivity : AppCompatActivity() {
 //            "pictureUrl":"https:\/\/incognitodevs.000webhostapp.com\/IncognitoServer\/src\/uploads\/robbery.jpg"}
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://incognitodevs.000webhostapp.com/IncognitoServer/src/Waiter.php"
+        val url = "https://incognitodevs.000webhostapp.com/IncognitoServer/src/Waiter1.php"
         val postRequest = object : StringRequest(Request.Method.POST, url,
                 Response.Listener { response ->
-                    val obj = JSONObject(response)
                     Log.d("response", response.toString())
+                    val obj = JSONObject(response)
                     if (!obj.getBoolean("error")) {
                         DownloadImageTask(imageViewMain).execute(obj.getString("pictureUrl"))
                     }
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity() {
                 return params
             }
         }
+        postRequest.retryPolicy = DefaultRetryPolicy(
+                15000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
         queue.add(postRequest)
     }
 
